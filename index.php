@@ -1,5 +1,7 @@
 <?php 
 
+require_once 'funcs.php';
+
   $title = 'My Title';
   
   $posts = [
@@ -53,6 +55,6 @@
     ],
   ];
 
-  require_once 'index.tpl.php';
+  require_once 'app/views/index.tpl.php';
 
 

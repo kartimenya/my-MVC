@@ -17,7 +17,7 @@
       <header class="header">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="/">Navbar</a>
             <button
               class="navbar-toggler"
               type="button"
@@ -42,38 +42,3 @@
           </div>
         </nav>
       </header>
-      <main class="main pt-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-8">
-              <p>
-                <?= $post ?>
-              </p>
-            </div>
-            <div class="col-4">
-              <h3>Recent post</h3>
-              <ul class="list-group">
-                <?php foreach ($recent_posts as $post): ?>
-                <li class="list-group-item">
-                  <a href="<?= $post['slug'] ?>"><?= $post['title'] ?></a>
-                </li>
-                <?php endforeach ?>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </main>
-      <footer class="footer">
-        <div class="p-3 bg-secondary-subtle text-emphasis-secondary text-center">
-          &copy; Copyright
-          <?= date('Y') ?>
-        </div>
-      </footer>
-    </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
