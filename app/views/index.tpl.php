@@ -1,4 +1,4 @@
-<?php require_once 'incs/header.php' ?>
+<?php require_once VIEWS . '/incs/header.php' ?>
 
 <main class="main pt-3">
   <div class="container">
@@ -16,9 +16,9 @@
         </div>
         <?php endforeach ?>
       </div>
-      <?php require_once 'incs/sidebar.php' ?>
+      <?php require_once  VIEWS . '/incs/sidebar.php' ?>
     </div>
   </div>
 </main>
 
-<?php require_once 'incs/footer.php' ?>
+<?php require_once  VIEWS . '/incs/footer.php' ?>
