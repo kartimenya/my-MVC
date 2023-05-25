@@ -1,7 +1,5 @@
 <?php 
 
-require_once 'funcs.php';
-
 $post = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ut neque deserunt
   labore minima rerum perspiciatis ea blanditiis natus debitis, iste quam sint
   reprehenderit sunt, praesentium molestiae veritatis, voluptas ad.';
@@ -29,6 +27,6 @@ $recent_posts = [
     ],
   ];
 
-require_once 'app/views/about.tpl.php';
+require_once VIEWS . '/about.tpl.php';
 
 

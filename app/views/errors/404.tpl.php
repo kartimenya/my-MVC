@@ -4,11 +4,8 @@
   <div class="container">
     <div class="row">
       <div class="col-8">
-        <p>
-          <?= $post ?>
-        </p>
+        404 page not found
       </div>
-      <?php require_once VIEWS . '/incs/sidebar.php' ?>
     </div>
   </div>
 </main>
