@@ -1,10 +1,14 @@
-<?php 
+<?php
 
-  $title = 'My Title';
+/**
+* @var Db $db
+**/
+
+$title = 'My Title';
   
-  $posts = $db->query("SELECT * FROM post")->fetchAll();
-  $recent_posts = $db->query("SELECT * FROM post ORDER BY id DESC LIMIT 3")->fetchAll();
+$posts = $db->query("SELECT * FROM post")->findAll();
+$recent_posts = $db->query("SELECT * FROM post ORDER BY id DESC LIMIT 3")->findAll();
 
-  require_once VIEWS . '/index.tpl.php';
+require_once VIEWS . '/index.tpl.php';
 
 

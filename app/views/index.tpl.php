@@ -11,7 +11,7 @@
             <p class="card-text">
               <?= $post['excert'] ?>
             </p>
-            <a href="post/<?= $post['slug'] ?>" class="btn btn-primary">Go somewhere</a>
+            <a href="post?id=<?= $post['id'] ?>" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <?php endforeach ?>

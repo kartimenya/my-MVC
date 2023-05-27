@@ -3,6 +3,7 @@
 class Db
 {
     private PDO $connection;
+    private PDOStatement $stmt;
 
     function __construct(array $db_config)
     {
@@ -14,10 +15,29 @@ class Db
         }
     }
 
-    public function query($query): PDOStatement
+    public function query($query, $params = [])
     {
-        $stmt = $this->connection->query($query);
-        $stmt->execute();
-        return $stmt;
+        $this->stmt = $this->connection->prepare($query);
+        $this->stmt->execute($params);
+        return $this;
+    }
+
+    public function findAll()
+    {
+       return $this->stmt->fetchAll();
+    }
+
+    public function find()
+    {
+       return $this->stmt->fetch();
+    }
+
+    public function findOrFail()
+    {
+        $res = $this->find();
+        if (!$res) {
+            abort();
+        }
+       return $res;
     }
 }
