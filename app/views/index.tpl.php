@@ -9,9 +9,9 @@
           <div class="card-body">
             <h5 class="card-title"><?= $post['title'] ?></h5>
             <p class="card-text">
-              <?= $post['desc'] ?>
+              <?= $post['excert'] ?>
             </p>
-            <a href="<?= $post['slug'] ?>" class="btn btn-primary">Go somewhere</a>
+            <a href="post/<?= $post['slug'] ?>" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <?php endforeach ?>
