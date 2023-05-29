@@ -7,9 +7,9 @@
         <?php foreach($posts as $post): ?>
         <div class="card mb-3">
           <div class="card-body">
-            <h5 class="card-title"><?= $post['title'] ?></h5>
+            <h5 class="card-title"><?= h($post['title']) ?></h5>
             <p class="card-text">
-              <?= $post['excert'] ?>
+              <?= h($post['excert']) ?>
             </p>
             <a href="post?id=<?= $post['id'] ?>" class="btn btn-primary">Go somewhere</a>
           </div>

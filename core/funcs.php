@@ -25,9 +25,30 @@ function load(array $fillable): array
     $data = [];
     foreach ($_POST as $key => $value) {
         if (in_array($key, $fillable)) {
-            $data[$key] = $value;
+            $data[$key] = trim($value);
         }
     }
     
     return $data;
+}
+
+function old(string $fieldname)
+{
+    return isset($_POST[$fieldname]) ? h($_POST[$fieldname]) : '';
+}
+
+function h(string $str)
+{
+    return htmlspecialchars($str, ENT_QUOTES);
+}
+
+function redirect($url = '')
+{
+    if ($url) {
+        $redirect = $url;
+    } else {
+        $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+    }
+    header("Location: {$redirect}");
+    die;
 }

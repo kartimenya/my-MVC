@@ -15,24 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //validation
     $errors = [];
-    if (empty(trim($data['title']))){
+    if (empty($data['title'])){
         $errors['title'] = 'Title is required';
     }
-    if (empty(trim($data['content']))){
+    if (empty($data['content'])){
         $errors['content'] = 'Content is required';
     }
-    if (empty(trim($data['excert']))){
+    if (empty($data['excert'])){
         $errors['excert'] = 'Excert is required';
     }
 
 
     if (empty($errors)) {
-        $db->query("INSERT INTO post (`title`, `content`, `excert`, `slug`) VALUES (?, ?, ?, ?)", [
-            $_POST['title'],
-            $_POST['content'],
-            $_POST['excert'],
-            $_POST['title'],
-        ]);
+        if ($db->query("INSERT INTO post (`title`, `content`, `excert`, `slug`) VALUES (:title, :content, :excert, :title)",$data)) {
+            echo 'ok';
+        } else {
+            echo 'DB_ERROR';
+        }
+        
+        // redirect('/posts/create');
     }  
 }
 

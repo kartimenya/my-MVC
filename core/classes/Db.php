@@ -36,9 +36,13 @@ final class Db
     }
 
     public function query($query, $params = [])
-    {
-        $this->stmt = $this->connection->prepare($query);
-        $this->stmt->execute($params);
+    {   
+        try {
+            $this->stmt = $this->connection->prepare($query);
+            $this->stmt->execute($params);            
+        } catch (PDOException $e) {
+            return false;
+        }
         return $this;
     }
 

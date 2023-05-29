@@ -7,7 +7,14 @@
         <form action="" method="POST">
           <div class="mb-3">
             <label for="title" class="form-label">Post title</label>
-            <input type="text" class="form-control" id="title" name="title" />
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              placeholder="Title"
+              value="<?= old('title') ?>"
+            />
             <?php if (isset($errors['title'])): ?>
             <div class="invalid-feedback d-block">
               <?= $errors['title'] ?>
@@ -22,7 +29,10 @@
               class="form-control"
               id="excert"
               rows="2"
-            ></textarea>
+              placeholder="Excert"
+            >
+<?= old('excert') ?></textarea
+            >
             <?php if (isset($errors['excert'])): ?>
             <div class="invalid-feedback d-block">
               <?= $errors['excert'] ?>
@@ -37,7 +47,10 @@
               class="form-control"
               id="content"
               rows="5"
-            ></textarea>
+              placeholder="Content"
+            >
+<?= old('content') ?></textarea
+            >
             <?php if (isset($errors['content'])): ?>
             <div class="invalid-feedback d-block">
               <?= $errors['content'] ?>
