@@ -1,5 +1,6 @@
 <?php 
 
+require_once CORE . '/classes/Validator.php';
 /**
 * @var Db $db
 **/
@@ -14,16 +15,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = load($fillable);
 
     //validation
-    $errors = [];
-    if (empty($data['title'])){
-        $errors['title'] = 'Title is required';
+
+    $validator = new Validator();
+    $validation = $validator->validate($data, [
+        'title' => [
+            'required' => true,
+            'min' => 5,
+            'max' => 190,
+        ],
+        'excert' => [
+            'required' => true,
+            'min' => 10,
+            'max' => 190,
+        ],
+        'content' => [
+            'required' => true,
+            'min' => 100,
+        ],
+    ]);
+
+    if($validation->hasErrors()) {
+        print_arr($validation->getErrors());
+    } else {
+        echo 'SUCCESS';
     }
-    if (empty($data['content'])){
-        $errors['content'] = 'Content is required';
-    }
-    if (empty($data['excert'])){
-        $errors['excert'] = 'Excert is required';
-    }
+
+    die;
+
+    // $rules = [
+    //     'title' => [
+    //         'required' => true,
+    //         'min' => 5,
+    //         'max' => 190,
+    //     ],
+    //     'excert' => [
+    //         'required' => true,
+    //         'min' => 10,
+    //         'max' => 190,
+    //     ],
+    //     'content' => [
+    //         'required' => true,
+    //         'min' => 100,
+    //     ],
+    // ];
+
+    // if (empty($data['title'])){
+    //     $errors['title'] = 'Title is required';
+    // }
+    // if (empty($data['content'])){
+    //     $errors['content'] = 'Content is required';
+    // }
+    // if (empty($data['excert'])){
+    //     $errors['excert'] = 'Excert is required';
+    // }
 
 
     if (empty($errors)) {
