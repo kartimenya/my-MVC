@@ -1,8 +1,10 @@
 <?php 
 
-require_once CORE . '/classes/Validator.php';
+use core\Validator;
+
+
 /**
-* @var Db $db
+* @var \core\Db $db
 **/
 
 $title = 'New post';
