@@ -16,7 +16,7 @@ class Validator
     public function validate($data = [], $rules = [])
     {
         foreach ($data as $fieldname => $value) {
-            if (in_array($fieldname, array_keys($rules))) {
+            if (isset($rules[$fieldname])) {
                 $this->check([
                     'fieldname' => $fieldname,
                     'value' => $value,
@@ -51,6 +51,20 @@ class Validator
     protected function addError($fieldname, $error)
     {
         $this->errors[$fieldname][] = $error;
+    }
+
+
+    public function listErrors($fieldname)
+    {
+        $output = '';
+        if (isset($this->errors[$fieldname])) {
+            $output .= "<div class='invalid-feedback d-block'><ul class='list-unstyled'>";
+            foreach ($this->errors[$fieldname] as $error) {
+                $output .= "<li>{$error}</li>";
+            }
+            $output .= "</ul></div>";
+        }
+        return $output;
     }
 
     protected function required ($value, $rule_value)

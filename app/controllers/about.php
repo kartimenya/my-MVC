@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+global $db;
 
 $post = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ut neque deserunt
   labore minima rerum perspiciatis ea blanditiis natus debitis, iste quam sint

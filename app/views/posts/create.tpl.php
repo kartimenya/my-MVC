@@ -1,10 +1,17 @@
-<?php require_once VIEWS . '/incs/header.php' ?>
+<?php 
+require_once VIEWS . '/incs/header.php' 
+
+/**
+ * @var core\Validator $validation
+ */
+
+?>
 
 <main class="main pt-3">
   <div class="container">
     <div class="row">
       <div class="col-8">
-        <form action="" method="POST">
+        <form action="/posts" method="POST">
           <div class="mb-3">
             <label for="title" class="form-label">Post title</label>
             <input
@@ -15,11 +22,7 @@
               placeholder="Title"
               value="<?= old('title') ?>"
             />
-            <?php if (isset($errors['title'])): ?>
-            <div class="invalid-feedback d-block">
-              <?= $errors['title'] ?>
-            </div>
-            <?php endif; ?>
+            <?= isset($validation) ? $validation->listErrors('title') : '' ?>
           </div>
           <div class="mb-3">
             <label for="excert" class="form-label">Excert</label>
@@ -33,11 +36,7 @@
             >
 <?= old('excert') ?></textarea
             >
-            <?php if (isset($errors['excert'])): ?>
-            <div class="invalid-feedback d-block">
-              <?= $errors['excert'] ?>
-            </div>
-            <?php endif; ?>
+            <?= isset($validation) ? $validation->listErrors('excert') : '' ?>
           </div>
           <div class="mb-3">
             <label for="content" class="form-label">Content</label>
@@ -51,16 +50,11 @@
             >
 <?= old('content') ?></textarea
             >
-            <?php if (isset($errors['content'])): ?>
-            <div class="invalid-feedback d-block">
-              <?= $errors['content'] ?>
-            </div>
-            <?php endif; ?>
+            <?= isset($validation) ? $validation->listErrors('content') : '' ?>
           </div>
           <button type="submit" class="btn btn-primary">Create</button>
         </form>
       </div>
-      <?php require_once VIEWS . '/incs/sidebar.php' ?>
     </div>
   </div>
 </main>
