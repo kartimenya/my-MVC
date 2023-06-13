@@ -69,4 +69,8 @@ final class Db
         }
        return $res;
     }
+
+    public function rowCount(){
+        return $this->stmt->rowCount();
+    }
 }
