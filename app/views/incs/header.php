@@ -29,7 +29,7 @@
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
                   <a class="nav-link" href="/">Home</a>
@@ -41,9 +41,20 @@
                   <a class="nav-link" href="/posts/create">New post</a>
                 </li>
               </ul>
+
+              <ul class="d-flex align-items-center list-unstyled m-0 gap-3">
+                <?php if (check_auth()): ?>
+                  <li><?= $_SESSION['user']['name']; ?></li>
+                  <li><a class="nav-link" href="/logout">Logout</a></li>
+                <?php else: ?>
+                  <li><a class="nav-link" href="register">Register</a></li>
+                  <li><a class="nav-link" href="login">Login</a></li>
+                <?php endif; ?>
+              </ul>
             </div>
           </div>
         </nav>
       </header>
-
       <?= get_alerts() ?>
+  </body>
+</html>

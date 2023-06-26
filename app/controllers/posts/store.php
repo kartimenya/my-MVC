@@ -1,12 +1,6 @@
 <?php
 
-global $db;
-
 use core\Validator;
-
-/**
-* @var \core\Db $db
-**/
 
 $fillable = ['title', 'content', 'excert'];
     $data = load($fillable);
@@ -32,7 +26,7 @@ $fillable = ['title', 'content', 'excert'];
     ]);
 
     if(!$validation->hasErrors()) {
-        if ($db->query("INSERT INTO post (`title`, `content`, `excert`, `slug`) VALUES (:title, :content, :excert, :title)",$data)) {
+        if (db()->query("INSERT INTO post (`title`, `content`, `excert`, `slug`) VALUES (:title, :content, :excert, :title)",$data)) {
             $_SESSION['success'] ='OK';
         } else {
             $_SESSION['error'] = 'DB Error';

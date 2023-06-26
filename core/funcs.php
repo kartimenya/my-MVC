@@ -71,3 +71,11 @@ function get_alerts()
         unset($_SESSION['error']);
     }
 }
+
+function db() : \core\Db {
+    return \core\App::get(\core\Db::class);
+}
+
+function check_auth() : bool {
+    return isset($_SESSION['user']);
+}
