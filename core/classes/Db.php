@@ -73,7 +73,13 @@ final class Db
        return $res;
     }
 
-    public function rowCount(){
+    public function rowCount()
+    {
         return $this->stmt->rowCount();
+    }
+
+    public function getColum()
+    {
+        return $this->stmt->fetchColumn();
     }
 }

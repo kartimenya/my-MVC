@@ -15,6 +15,10 @@
           </div>
         </div>
         <?php endforeach ?>
+
+        <hr>
+
+        <?= $pagination ?>
       </div>
       <?php require_once  VIEWS . '/incs/sidebar.php' ?>
     </div>

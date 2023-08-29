@@ -4,7 +4,7 @@ namespace core;
 
 class Router
 {
-    public array $routes = [];
+    protected array $routes = [];
     protected string $uri;
     protected string $method;
 
